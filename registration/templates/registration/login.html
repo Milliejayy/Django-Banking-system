@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        {% endif %}
+
+        <p>
+            <label>Firstname</label>
+            <input type="text" name="firstname" >
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="password" name="password" >
+        </p>
+
+        <input type="submit" value="Submit" >
+   </form>
+   <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
